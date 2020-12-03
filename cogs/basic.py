@@ -20,7 +20,10 @@ class BasicCommands(commands.Cog):
             "Me not that kind of orc!",
         ]
 
-        await ctx.channel.send(random.choice(phrase_list))
+        await ctx.channel.send(
+            random.choice(phrase_list)
+            + "\nAPI response time: `{} ms`".format(int(self.bot.latency * 1000))
+        )
 
 
 def setup(bot):

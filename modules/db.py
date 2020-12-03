@@ -1,6 +1,5 @@
 import psycopg2
 
-from modules import blizzard
 from modules.config import config
 
 conn_params = {
@@ -35,6 +34,19 @@ def get_char_owner(char_name: str, realm_slug: str):
         [char_name, realm_slug],
     )
     return cur.fetchone()
+
+
+def del_char_owner(char_name: str, realm_slug: str):
+    cur = conn.cursor()
+    # try:
+    cur.execute(
+        "DELETE FROM characters WHERE char_name = %s AND realm_slug = %s;",
+        [char_name, realm_slug],
+    )
+    conn.commit()
+    return True
+    # except:
+    #     return False
 
 
 def set_char_owner(user_id: int, char_name: str, realm_slug: str):

@@ -17,4 +17,5 @@ async def on_ready():
 for cog in config.bot.cogs.autoload:
     bot.load_extension(f"cogs.{cog}")
 
+print("INFO: Connecting to Discord API...")
 bot.run(config.discord.api.token)

@@ -19,6 +19,12 @@ class BlizzardAPI(commands.Cog):
 
         equip_data = blizzard.get_equipment_summary(params[0], params[1])
 
+        if not equip_data:
+            await ctx.channel.send(
+                "Couldn't find that character. If they were recently realm-transferred, you might have to wait a while."
+            )
+            return
+
         equip_list = [
             [item["slot"]["name"], item["name"], item["level"]["value"]]
             for item in equip_data

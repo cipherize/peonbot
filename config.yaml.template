@@ -1,0 +1,21 @@
+discord:
+  api:
+    token: [Discord API Token]
+blizzard:
+  api:
+    id: [Blizzard API ID]
+    secret: [Blizzard API Secret]
+db:
+  host: localhost
+  port: 5432
+  user: peonbot
+  password: [Database User Password]
+  dbname: peonbot
+bot:
+  prefix: g!
+  cogs:
+    autoload:
+      - cogmgmt
+      - basic
+      - blizzard
+      - characters
